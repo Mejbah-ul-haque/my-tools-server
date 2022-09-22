@@ -81,7 +81,7 @@ async function run() {
 			res.json(result);
 		});
 
-		// Blog
+		// Blog ip
 		app.get("/blog", async (req, res) => {
 			const query = {};
 			const cursor = blogCollection.find(query);
