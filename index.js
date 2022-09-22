@@ -171,21 +171,6 @@ async function run() {
 			res.json({ result, token });
 		});
 
-		// app.get('/available', async (req, res) =>{
-		//   const quantity = req.query.quantity;
-		//   const services = await serviceCollection.find().toArray();
-		//   const query = {quantity: totalQuantity}
-		//   const purchases = await purchaseCollection.find(query).toArray();
-
-		//   services.forEach(service => {
-		//     const servicePurchases = purchases.filter(purchase =>purchase.toolsName === service.name);
-		//     const purchaseQuantity = servicePurchases.map(purchase=>purchase.quantity);
-		//     const available = service.availableQuantity.filter(quantity =>!purchaseQuantity.includes(quantity));
-		//     service.availableQuantity = available;
-		//   })
-		//   res.json(purchases);
-		// })
-
 		app.get("/purchase", verifyJWT, async (req, res) => {
 			const userEmail = req.query.userEmail;
 			const decodedEmail = req.decoded.email;
