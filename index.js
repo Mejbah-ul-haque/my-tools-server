@@ -81,7 +81,7 @@ async function run() {
 			res.json(result);
 		});
 
-		// Blog ip
+		// Blog
 		app.get("/blog", async (req, res) => {
 			const query = {};
 			const cursor = blogCollection.find(query);
@@ -110,7 +110,7 @@ async function run() {
 			res.send({clientSecret: paymentIntent.client_secret})
 		});
 
-		// Tools/Services
+		// Services
 		app.get("/service", async (req, res) => {
 			const query = {};
 			const cursor = serviceCollection.find(query);
