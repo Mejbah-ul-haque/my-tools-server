@@ -243,9 +243,10 @@ async function run() {
 		});
 		
 		app.delete('/product/:id', verifyJWT, verifyAdmin, async (req, res) =>{
-			const email = req.params.email;
-			const filter = {email: email}
+			const id = req.params.id;
+			const filter = {_id: ObjectId(id)}
 			const result = await productCollection.deleteOne(filter);
+			console.log(result);
 			res.json(result);
 		});
 		
