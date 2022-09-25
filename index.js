@@ -59,6 +59,7 @@ async function run() {
       }
 		}
 		
+		// Get Method
 		app.get("/payment", async (req, res) => {
 			const query = {};
 			const cursor = paymentCollection.find(query);
@@ -128,6 +129,14 @@ async function run() {
 		app.post('/service', verifyJWT, verifyAdmin, async (req, res) =>{
 			const service = req.body;
 			const result = await serviceCollection.insertOne(service);
+			res.json(result);
+		});
+		
+		app.delete('/service/:id', verifyJWT, verifyAdmin, async (req, res) =>{
+			const id = req.params.id;
+			const filter = {_id: ObjectId(id)}
+			const result = await serviceCollection.deleteOne(filter);
+			console.log(result);
 			res.json(result);
 		});
 
